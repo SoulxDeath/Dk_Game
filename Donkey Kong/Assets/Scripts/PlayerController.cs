@@ -5,11 +5,15 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour {
 
 	public float moveSpeed;
+
+	public float jump;
+
+	public float moveVelocity;
 	
 	// Update is called once per frame
 	void Update () 
 	{
-		if(Input.GetKey ("w"))
+		/*if(Input.GetKey ("w"))
 		{
 			moveUp ();
 		}
@@ -17,7 +21,7 @@ public class PlayerController : MonoBehaviour {
 		if(Input.GetKey ("s"))
 		{
 			moveDown ();
-		}
+		}*/
 
 		if(Input.GetKey ("a"))
 		{
@@ -27,6 +31,12 @@ public class PlayerController : MonoBehaviour {
 		if(Input.GetKey ("d"))
 		{
 			moveRight ();
+		}
+
+		//Jumping
+		if (Input.GetKey ("z")) 
+		{
+			jumpPlayer ();
 		}
 	}
 
@@ -46,4 +56,9 @@ public class PlayerController : MonoBehaviour {
 	{
 		transform.position += new Vector3 (moveSpeed, 0);
 	}
+	void jumpPlayer()
+	{
+		GetComponent<Rigidbody2D> ().velocity = new Vector2 (GetComponent<Rigidbody2D> ().velocity.x, jump);
+	}
+
 }
