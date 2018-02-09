@@ -9,11 +9,22 @@ public class PlayerController : MonoBehaviour {
 	public float jump;
 
 	public float moveVelocity;
+
+
+	public GameObject ladder;
+
+	void Start()
+	{
+		
+	}
 	
 	// Update is called once per frame
 	void Update () 
 	{
-		/*if(Input.GetKey ("w"))
+
+		//OnTriggerStay2D ();
+
+		if (Input.GetKey ("w")) 
 		{
 			moveUp ();
 		}
@@ -21,7 +32,7 @@ public class PlayerController : MonoBehaviour {
 		if(Input.GetKey ("s"))
 		{
 			moveDown ();
-		}*/
+		}
 
 		if(Input.GetKey ("a"))
 		{
@@ -60,5 +71,16 @@ public class PlayerController : MonoBehaviour {
 	{
 		GetComponent<Rigidbody2D> ().velocity = new Vector2 (GetComponent<Rigidbody2D> ().velocity.x, jump);
 	}
+
+	/*void OnTriggerStay2D(Collider2D other)
+	{
+		if(Input.GetAxis("Vertical") < 0 || Input.GetAxis("Vertical" > 0)
+			{
+				if (Input.GetKey ("w")) 
+				{
+					moveUp ();
+				}
+			}
+	}*/
 
 }
